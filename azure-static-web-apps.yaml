@@ -5,4 +5,5 @@ skip_app_build: false
 skip_api_build: true
 app_build_command: "npm ci && npm run build"
 api_build_command: ""
-app_artifact_location: "dist/app-insights-demo" 
+app_artifact_location: "dist/app-insights-demo"
+deployment_environment: production 
