@@ -23,14 +23,27 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22.12'
           cache: 'npm'
+      
+      - name: Debug Node and npm versions
+        run: |
+          node --version
+          npm --version
       
       - name: Install dependencies
         run: npm ci
       
+      - name: Debug Angular CLI version
+        run: npx ng version
+      
       - name: Build application
         run: npm run build
+      
+      - name: Debug build output
+        run: |
+          ls -la dist/
+          ls -la dist/app-insights-demo/browser/ || echo "Browser directory not found"
       
       - name: Build And Deploy
         id: builddeploy
