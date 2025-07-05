@@ -20,6 +20,25 @@ jobs:
         with:
           submodules: true
       
+      - name: Setup Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.12'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Build application
+        run: npm run build
+      
+      - name: Debug build output
+        run: |
+          echo "Checking build output..."
+          ls -la dist/
+          ls -la dist/app-insights-demo/browser/ || echo "Browser directory not found"
+          find dist/ -name "index.html" || echo "index.html not found"
+      
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
@@ -29,8 +48,8 @@ jobs:
           action: "upload"
           app_location: "/"
           api_location: ""
-          output_location: "dist/app-insights-demo"
-          skip_app_build: false
+          output_location: "dist/app-insights-demo/browser"
+          skip_app_build: true
           skip_api_build: true
           deployment_environment: production
           skip_deploy_on_missing_secrets: true

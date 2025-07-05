@@ -1,9 +1,9 @@
 app_location: "/"
 api_location: ""
-output_location: "dist/app-insights-demo"
+output_location: "dist/app-insights-demo/browser"
 skip_app_build: false
 skip_api_build: true
 app_build_command: "npm ci && npm run build"
 api_build_command: ""
-app_artifact_location: "dist/app-insights-demo"
+app_artifact_location: "dist/app-insights-demo/browser"
 deployment_environment: production 

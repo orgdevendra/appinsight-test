@@ -20,7 +20,7 @@
             "browser": "src/main.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "outputPath": "dist/app-insights-demo",
+            "outputPath": "dist/app-insights-demo/browser",
             "assets": [
               {
                 "glob": "**/*",
