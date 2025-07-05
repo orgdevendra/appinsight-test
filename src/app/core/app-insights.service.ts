@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ApplicationInsights } from '@microsoft/applicationinsights-web';
+import { environment } from '../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class AppInsightsService {
@@ -8,7 +9,7 @@ export class AppInsightsService {
   constructor() {
     this.appInsights = new ApplicationInsights({
       config: {
-        instrumentationKey: 'YOUR_INSTRUMENTATION_KEY',
+        instrumentationKey: environment.appInsightsKey,
         enableAutoRouteTracking: true
       }
     });
