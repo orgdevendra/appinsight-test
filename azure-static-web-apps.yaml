@@ -1,0 +1,8 @@
+app_location: "/"
+api_location: ""
+output_location: "dist/app-insights-demo/browser"
+skip_app_build: false
+skip_api_build: true
+app_build_command: "npm run build:azure"
+api_build_command: ""
+app_artifact_location: "dist/app-insights-demo/browser" 

@@ -20,31 +20,6 @@ jobs:
         with:
           submodules: true
       
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '22.12'
-          cache: 'npm'
-      
-      - name: Debug Node and npm versions
-        run: |
-          node --version
-          npm --version
-      
-      - name: Install dependencies
-        run: npm ci
-      
-      - name: Debug Angular CLI version
-        run: npx ng version
-      
-      - name: Build application
-        run: npm run build
-      
-      - name: Debug build output
-        run: |
-          ls -la dist/
-          ls -la dist/app-insights-demo/browser/ || echo "Browser directory not found"
-      
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
@@ -54,8 +29,9 @@ jobs:
           app_location: "/" # App source code path
           api_location: "" # Api source code path - leave empty if not used
           output_location: "dist/app-insights-demo/browser" # Built app content directory
-          skip_app_build: true
+          skip_app_build: false
           skip_api_build: true
+          deployment_environment: production
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
