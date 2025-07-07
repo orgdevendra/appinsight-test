@@ -10,7 +10,7 @@ import { RouterLink } from '@angular/router';
     <nav>
       <a routerLink="/home">Home</a>
       <a routerLink="/login">Login</a>
-      <span *ngIf="auth.currentUser">User: {{auth.currentUser?.name}} ({{auth.currentUser?.role}})</span>
+      <span *ngIf="auth.currentUser">User: {{auth.currentUser.name}} ({{auth.currentUser.role}})</span>
     </nav>
   `,
   imports: [CommonModule, RouterLink]
