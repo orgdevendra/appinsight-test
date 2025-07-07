@@ -3,5 +3,9 @@ api_location: ""
 output_location: "dist/app-insights-demo/browser"
 skip_app_build: false
 skip_api_build: true
-app_build_command: "npm ci && npm run build"
+app_build_command: |
+  npm ci
+  npm run build
+  echo "Listing build output directory contents for debugging:"
+  ls -l dist/app-insights-demo/browser
 api_build_command: "" 
